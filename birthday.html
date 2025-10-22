@@ -34,10 +34,7 @@
     z-index: 1;
   }
 
-  .left {
-    flex: 1 1 50%;
-    text-align: center;
-  }
+  .left { flex: 1 1 50%; text-align: center; }
 
   h1 {
     font-family: 'Great Vibes', cursive;
@@ -58,58 +55,28 @@
     height: 150px;
   }
 
-  .plate {
-    position: absolute;
-    bottom: 0;
-    width: 220px;
-    height: 20px;
-    background: #fff;
-    border-radius: 50%;
-    left: -10px;
-  }
+  .plate { position: absolute; bottom: 0; width: 220px; height: 20px; background: #fff; border-radius: 50%; left: -10px; }
 
-  .layer {
-    position: absolute;
-    bottom: 20px;
-    width: 200px;
-    border-radius: 10px;
-  }
-
+  .layer { position: absolute; bottom: 20px; width: 200px; border-radius: 10px; }
   .layer1 { height: 60px; background: #ff6f61; bottom: 20px; }
   .layer2 { height: 40px; background: #ffa69e; bottom: 80px; }
   .layer3 { height: 30px; background: #fff0f5; bottom: 120px; }
 
-  .candle {
-    position: absolute;
-    width: 10px;
-    height: 40px;
-    background: #fff;
-    left: 95px;
-    top: -40px;
-    border-radius: 5px;
-  }
-
+  .candle { position: absolute; width: 10px; height: 40px; background: #fff; left: 95px; top: -40px; border-radius: 5px; }
   .flame {
     position: absolute;
     top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 10px;
-    height: 15px;
+    width: 10px; height: 15px;
     background: radial-gradient(ellipse at center, #ffea00 0%, #ff8c00 80%);
     border-radius: 50%;
     animation: flicker 0.2s infinite alternate;
   }
 
-  @keyframes flicker {
-    0% { transform: translateX(-50%) scale(1); opacity: 1; }
-    100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
-  }
+  @keyframes flicker { 0% { transform: translateX(-50%) scale(1); opacity: 1; } 100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
 
-  .reel-section {
-    margin-top: 40px;
-  }
-
+  .reel-section { margin-top: 40px; }
   .reel-button {
     font-family: 'Great Vibes', cursive;
     font-size: 2.2em;
@@ -146,49 +113,18 @@
     animation: rainbow 6s ease infinite;
   }
 
-  @keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+  @keyframes rainbow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-  .right {
-    flex: 1 1 45%;
-    text-align: center;
-  }
+  .right { flex: 1 1 45%; text-align: center; }
+  .right img { width: 90%; max-width: 400px; border-radius: 20px; margin: 40px 0; box-shadow: 0 0 25px rgba(255, 105, 180, 0.6); animation: float 4s ease-in-out infinite; }
 
-  .right img {
-    width: 90%;
-    max-width: 400px;
-    border-radius: 20px;
-    margin: 40px 0;
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
-    animation: float 4s ease-in-out infinite;
-  }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
+  footer { text-align: center; margin: 20px; font-size: 1.1em; font-weight: 500; color: #fff; animation: fadeIn 2s ease-in-out; }
 
-  footer {
-    text-align: center;
-    margin: 20px;
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #fff;
-    animation: fadeIn 2s ease-in-out;
-  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @media (max-width: 768px) {
-    .container { flex-direction: column; padding: 20px; }
-    .right img { margin-top: 20px; }
-  }
+  @media (max-width: 768px) { .container { flex-direction: column; padding: 20px; } .right img { margin-top: 20px; } }
 </style>
 </head>
 <body>
@@ -198,23 +134,18 @@
 <div class="container">
   <div class="left">
     <h1>🎂 Happy Birthday My Love ❤️</h1>
-
     <div class="cake">
       <div class="layer layer3"></div>
       <div class="layer layer2"></div>
       <div class="layer layer1"></div>
-      <div class="candle">
-        <div class="flame"></div>
-      </div>
+      <div class="candle"><div class="flame"></div></div>
       <div class="plate"></div>
     </div>
-
     <div class="reel-section">
       <button class="reel-button" onclick="playReel()">🎈🎈🎈🎈</button>
       <div class="message">Stay Happy</div>
     </div>
   </div>
-
   <div class="right">
     <img src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/ani.png" alt="Her Beautiful Photo">
   </div>
@@ -223,68 +154,73 @@
 <footer>Made with ❤️ just for you!</footer>
 
 <script>
-  function playReel() {
-    window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
-  }
+function playReel() {
+  window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
+}
 
-  // Confetti script
-  const canvas = document.querySelector('.confetti-canvas');
-  const ctx = canvas.getContext('2d');
-  let W = canvas.width = window.innerWidth;
-  let H = canvas.height = window.innerHeight;
+// Confetti script (works reliably)
+const canvas = document.querySelector('.confetti-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-  const confettiCount = 100;
-  const confetti = [];
+const colors = ['#f94144','#f3722c','#f9c74f','#90be6d','#577590','#43aa8b','#ff6f61'];
+const confetti = [];
 
-  function random(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  class Confetto {
-    constructor() {
-      this.x = random(0, W);
-      this.y = random(-H, 0);
-      this.size = random(5, 10);
-      this.speed = random(2, 5);
-      this.angle = random(0, 2 * Math.PI);
-      this.color = `hsl(${random(0,360)}, 70%, 60%)`;
-    }
-
-    update() {
-      this.y += this.speed;
-      this.x += Math.sin(this.angle) * 2;
-      this.angle += 0.05;
-      if (this.y > H) {
-        this.y = random(-20, 0);
-        this.x = random(0, W);
-      }
-    }
-
-    draw() {
-      ctx.fillStyle = this.color;
-      ctx.fillRect(this.x, this.y, this.size, this.size);
-    }
-  }
-
-  function initConfetti() {
-    for (let i = 0; i < confettiCount; i++) {
-      confetti.push(new Confetto());
-    }
-  }
-
-  function animateConfetti() {
-    ctx.clearRect(0,0,W,H);
-    confetti.forEach(c => { c.update(); c.draw(); });
-    requestAnimationFrame(animateConfetti);
-  }
-
-  window.addEventListener('resize', () => {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+for(let i=0; i<150; i++) {
+  confetti.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height - canvas.height,
+    r: Math.random()*6 + 4,
+    d: Math.random()*150 + 50,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    tilt: Math.random()*10 - 10,
+    tiltAngleIncremental: Math.random()*0.07 + 0.05,
+    tiltAngle: 0
   });
+}
 
-  initConfetti();
-  animateConfetti();
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let i=0;i<confetti.length;i++){
+    let c = confetti[i];
+    ctx.beginPath();
+    ctx.lineWidth = c.r/2;
+    ctx.strokeStyle = c.color;
+    ctx.moveTo(c.x + c.tilt + c.r/4, c.y);
+    ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r/4);
+    ctx.stroke();
+  }
+  update();
+}
+
+function update(){
+  for(let i=0;i<confetti.length;i++){
+    let c = confetti[i];
+    c.tiltAngle += c.tiltAngleIncremental;
+    c.y += (Math.cos(c.d) + 3 + c.r/2)/2;
+    c.x += Math.sin(c.d);
+    c.tilt = Math.sin(c.tiltAngle)*15;
+
+    if(c.y > canvas.height){
+      c.x = Math.random()*canvas.width;
+      c.y = -20;
+      c.tilt = Math.random()*10 - 10;
+    }
+  }
+}
+
+function animate(){
+  draw();
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener('resize', ()=> {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
