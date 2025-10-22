@@ -13,6 +13,15 @@
     font-family: 'Poppins', sans-serif;
     color: #fff;
     overflow-x: hidden;
+    position: relative;
+  }
+
+  canvas.confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
   }
 
   .container {
@@ -21,6 +30,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 40px;
+    position: relative;
+    z-index: 1;
   }
 
   .left {
@@ -105,7 +116,7 @@
     padding: 15px 30px;
     border: none;
     border-radius: 20px;
-    background: linear-gradient(90deg, #28a745, #2ecc71); /* green gradient */
+    background: linear-gradient(90deg, #28a745, #2ecc71);
     color: #fff;
     cursor: pointer;
     box-shadow: 0 0 25px rgba(40,167,69,0.6);
@@ -182,39 +193,99 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="left">
-      <h1>🎂 Happy Birthday My Love ❤️</h1>
+<canvas class="confetti-canvas"></canvas>
 
-      <div class="cake">
-        <div class="layer layer3"></div>
-        <div class="layer layer2"></div>
-        <div class="layer layer1"></div>
-        <div class="candle">
-          <div class="flame"></div>
-        </div>
-        <div class="plate"></div>
-      </div>
+<div class="container">
+  <div class="left">
+    <h1>🎂 Happy Birthday My Love ❤️</h1>
 
-      <div class="reel-section">
-        <button class="reel-button" onclick="playReel()">🎈🎈🎈🎈</button>
-        <div class="message">Stay Happy</div>
+    <div class="cake">
+      <div class="layer layer3"></div>
+      <div class="layer layer2"></div>
+      <div class="layer layer1"></div>
+      <div class="candle">
+        <div class="flame"></div>
       </div>
+      <div class="plate"></div>
     </div>
 
-    <div class="right">
-      <img src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/ani.png" alt="Her Beautiful Photo">
+    <div class="reel-section">
+      <button class="reel-button" onclick="playReel()">🎈🎈🎈🎈</button>
+      <div class="message">Stay Happy</div>
     </div>
   </div>
 
-  <footer> ❤️ just for you!</footer>
+  <div class="right">
+    <img src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/ani.png" alt="Her Beautiful Photo">
+  </div>
+</div>
+
+<footer>Made with ❤️ just for you!</footer>
 
 <script>
   function playReel() {
     window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
   }
+
+  // Confetti script
+  const canvas = document.querySelector('.confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  let W = canvas.width = window.innerWidth;
+  let H = canvas.height = window.innerHeight;
+
+  const confettiCount = 100;
+  const confetti = [];
+
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  class Confetto {
+    constructor() {
+      this.x = random(0, W);
+      this.y = random(-H, 0);
+      this.size = random(5, 10);
+      this.speed = random(2, 5);
+      this.angle = random(0, 2 * Math.PI);
+      this.color = `hsl(${random(0,360)}, 70%, 60%)`;
+    }
+
+    update() {
+      this.y += this.speed;
+      this.x += Math.sin(this.angle) * 2;
+      this.angle += 0.05;
+      if (this.y > H) {
+        this.y = random(-20, 0);
+        this.x = random(0, W);
+      }
+    }
+
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.x, this.y, this.size, this.size);
+    }
+  }
+
+  function initConfetti() {
+    for (let i = 0; i < confettiCount; i++) {
+      confetti.push(new Confetto());
+    }
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0,0,W,H);
+    confetti.forEach(c => { c.update(); c.draw(); });
+    requestAnimationFrame(animateConfetti);
+  }
+
+  window.addEventListener('resize', () => {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  });
+
+  initConfetti();
+  animateConfetti();
 </script>
 
 </body>
 </html>
-
