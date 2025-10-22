@@ -6,146 +6,65 @@
 <title>Happy Birthday Anisha ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    overflow-x: hidden;
-    position: relative;
-  }
-
-  canvas.confetti-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-  }
-
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-    position: relative;
-    z-index: 1;
-  }
-
+/* -------------- [Your existing CSS - no change] -------------- */
+  body { margin: 0; padding: 0; background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+    font-family: 'Poppins', sans-serif; color: #fff; overflow-x: hidden; position: relative; }
+  canvas.confetti-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; }
+  .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+    padding: 40px; position: relative; z-index: 1; }
   .left { flex: 1 1 50%; text-align: center; }
-
-  h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3em;
-    margin-top: 30px;
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff8fab, 0 0 30px #ff4e50; }
-    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff6f61, 0 0 40px #f6416c; }
-  }
-
-  .cake {
-    position: relative;
-    margin: 40px auto;
-    width: 200px;
-    height: 150px;
-  }
-
-  .cake-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
-    color: #fff;
-    text-shadow: 0 0 10px #ff6f61, 0 0 20px #f9d423;
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  .plate { position: absolute; bottom: 0; width: 220px; height: 20px; background: #fff; border-radius: 50%; left: -10px; }
-
+  h1 { font-family: 'Great Vibes', cursive; font-size: 3em; margin-top: 30px;
+    animation: glow 2s ease-in-out infinite alternate; }
+  @keyframes glow { from { text-shadow: 0 0 10px #fff, 0 0 20px #ff8fab, 0 0 30px #ff4e50; }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff6f61, 0 0 40px #f6416c; } }
+  .cake { position: relative; margin: 40px auto; width: 200px; height: 150px; }
+  .cake-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Great Vibes', cursive; font-size: 1.8em; color: #fff;
+    text-shadow: 0 0 10px #ff6f61, 0 0 20px #f9d423; cursor: pointer; z-index: 2; }
+  .plate { position: absolute; bottom: 0; width: 220px; height: 20px; background: #fff;
+    border-radius: 50%; left: -10px; }
   .layer { position: absolute; bottom: 20px; width: 200px; border-radius: 10px; }
   .layer1 { height: 60px; background: #ff6f61; bottom: 20px; }
   .layer2 { height: 40px; background: #ffa69e; bottom: 80px; }
   .layer3 { height: 30px; background: #fff0f5; bottom: 120px; }
-
-  .candle { position: absolute; width: 10px; height: 40px; background: #fff; left: 95px; top: -40px; border-radius: 5px; }
-  .flame {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px; height: 15px;
-    background: radial-gradient(ellipse at center, #ffea00 0%, #ff8c00 80%);
-    border-radius: 50%;
-    animation: flicker 0.2s infinite alternate;
-  }
-
-  @keyframes flicker { 0% { transform: translateX(-50%) scale(1); opacity: 1; } 100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
-
+  .candle { position: absolute; width: 10px; height: 40px; background: #fff; left: 95px;
+    top: -40px; border-radius: 5px; }
+  .flame { position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    width: 10px; height: 15px; background: radial-gradient(ellipse at center, #ffea00 0%, #ff8c00 80%);
+    border-radius: 50%; animation: flicker 0.2s infinite alternate; }
+  @keyframes flicker { 0% { transform: translateX(-50%) scale(1); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
   .reel-section { margin-top: 40px; }
-  .reel-button {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.2em;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 20px;
-    background: linear-gradient(90deg, #28a745, #2ecc71);
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 0 0 25px rgba(40,167,69,0.6);
-    animation: glow-button 2s ease-in-out infinite alternate, shake 0.5s ease-in-out infinite;
-  }
-
-  @keyframes glow-button {
-    0% { box-shadow: 0 0 20px rgba(40,167,69,0.6), 0 0 30px rgba(46,204,113,0.6); }
-    100% { box-shadow: 0 0 35px rgba(40,167,69,0.8), 0 0 45px rgba(46,204,113,0.8); }
-  }
-
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
+  .reel-button { font-family: 'Great Vibes', cursive; font-size: 2.2em; padding: 15px 30px; border: none;
+    border-radius: 20px; background: linear-gradient(90deg, #28a745, #2ecc71);
+    color: #fff; cursor: pointer; box-shadow: 0 0 25px rgba(40,167,69,0.6);
+    animation: glow-button 2s ease-in-out infinite alternate, shake 0.5s ease-in-out infinite; }
+  @keyframes glow-button { 0% { box-shadow: 0 0 20px rgba(40,167,69,0.6), 0 0 30px rgba(46,204,113,0.6); }
+    100% { box-shadow: 0 0 35px rgba(40,167,69,0.8), 0 0 45px rgba(46,204,113,0.8); } }
+  @keyframes shake { 0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px) rotate(-3deg); }
     50% { transform: translateX(5px) rotate(3deg); }
-    75% { transform: translateX(-5px) rotate(-3deg); }
-  }
-
-  .message {
-    margin-top: 20px;
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.6em;
+    75% { transform: translateX(-5px) rotate(-3deg); } }
+  .message { margin-top: 20px; font-family: 'Great Vibes', cursive; font-size: 1.6em;
     background: linear-gradient(90deg, #28a745, #2ecc71, #6a11cb, #00c3ff, #f9d423);
-    background-size: 400% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbow 6s ease infinite;
-  }
-
-  @keyframes rainbow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
+    background-size: 400% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: rainbow 6s ease infinite; }
+  @keyframes rainbow { 0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
   .right { flex: 1 1 45%; text-align: center; }
-  .right img { width: 90%; max-width: 400px; border-radius: 20px; margin: 40px 0; box-shadow: 0 0 25px rgba(255, 105, 180, 0.6); animation: float 4s ease-in-out infinite; }
-
+  .right img { width: 90%; max-width: 400px; border-radius: 20px; margin: 40px 0;
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6); animation: float 4s ease-in-out infinite; }
   @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-  footer { text-align: center; margin: 20px; font-size: 1.1em; font-weight: 500; color: #fff; animation: fadeIn 2s ease-in-out; }
-
+  footer { text-align: center; margin: 20px; font-size: 1.1em; font-weight: 500; color: #fff;
+    animation: fadeIn 2s ease-in-out; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
   @media (max-width: 768px) { .container { flex-direction: column; padding: 20px; } .right img { margin-top: 20px; } }
 </style>
 </head>
 <body>
 
-<!-- Background Music -->
 <audio id="bg-music" loop>
   <source src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/kangna-tera-ni-various_Jlf1feeW.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
 
 <canvas class="confetti-canvas"></canvas>
@@ -153,7 +72,7 @@
 <div class="container">
   <div class="left">
     <h1>🎂 Happy Birthday Anisha ❤️</h1>
-    <div class="cake" onclick="playMusic()">
+    <div class="cake" onclick="handleCakeClick()">
       <div class="layer layer3"></div>
       <div class="layer layer2"></div>
       <div class="layer layer1"></div>
@@ -162,7 +81,7 @@
       <div class="cake-text">Tap me</div>
     </div>
     <div class="reel-section">
-      <button class="reel-button" onclick="playReel()">🎈🎈🎈🎈</button>
+      <button class="reel-button" onclick="handleReelClick()">🎈🎈🎈🎈</button>
       <div class="message">Stay Happy</div>
     </div>
   </div>
@@ -173,81 +92,67 @@
 
 <footer>❤️ just for you!</footer>
 
-<script>
-// Play Instagram reel
-function playReel() {
-  window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
-}
+<script type="module">
+  // ✅ Firebase setup
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getDatabase, ref, get, set, update } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-// Play background music on cake click
-function playMusic() {
-  const music = document.getElementById('bg-music');
-  if (music.paused) music.play();
-}
+  // 🔥 Replace this with your actual Firebase config
+  const firebaseConfig = {
+  apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
+  authDomain: "birthdaytracker-460d0.firebaseapp.com",
+  projectId: "birthdaytracker-460d0",
+  storageBucket: "birthdaytracker-460d0.firebasestorage.app",
+  messagingSenderId: "138520757223",
+  appId: "1:138520757223:web:61790c894396347b2c7342"
+};
 
-// Confetti
-const canvas = document.querySelector('.confetti-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
 
-const colors = ['#28a745','#43aa8b','#90be6d','#57c84d','#2ecc71'];
-const confetti = [];
-for(let i=0;i<150;i++){
-  confetti.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height - canvas.height,
-    r: Math.random()*6 + 4,
-    d: Math.random()*150 + 50,
-    color: colors[Math.floor(Math.random()*colors.length)],
-    tilt: Math.random()*10 - 10,
-    tiltAngleIncremental: Math.random()*0.07 + 0.05,
-    tiltAngle: 0
-  });
-}
-
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(let i=0;i<confetti.length;i++){
-    let c = confetti[i];
-    ctx.beginPath();
-    ctx.lineWidth = c.r/2;
-    ctx.strokeStyle = c.color;
-    ctx.moveTo(c.x + c.tilt + c.r/4, c.y);
-    ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r/4);
-    ctx.stroke();
+  // Function to increment a counter in Firebase
+  async function incrementCounter(counterName) {
+    const counterRef = ref(db, 'clicks/' + counterName);
+    const snapshot = await get(counterRef);
+    const currentValue = snapshot.exists() ? snapshot.val() : 0;
+    await set(counterRef, currentValue + 1);
   }
-  update();
-}
 
-function update(){
-  for(let i=0;i<confetti.length;i++){
-    let c = confetti[i];
-    c.tiltAngle += c.tiltAngleIncremental;
-    c.y += (Math.cos(c.d) + 3 + c.r/2)/2;
-    c.x += Math.sin(c.d);
-    c.tilt = Math.sin(c.tiltAngle)*15;
-    if(c.y > canvas.height){
-      c.x = Math.random()*canvas.width;
-      c.y = -20;
-      c.tilt = Math.random()*10 - 10;
-    }
+  // Cake click
+  window.handleCakeClick = async function() {
+    const music = document.getElementById('bg-music');
+    if (music.paused) music.play();
+    await incrementCounter('cakeClicks');
   }
-}
 
-function animate(){
-  draw();
-  requestAnimationFrame(animate);
-}
+  // Reel click
+  window.handleReelClick = async function() {
+    window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
+    await incrementCounter('reelClicks');
+  }
 
-animate();
-
-window.addEventListener('resize', ()=>{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+  // 🎉 Confetti animation (unchanged)
+  const canvas = document.querySelector('.confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const colors = ['#28a745','#43aa8b','#90be6d','#57c84d','#2ecc71'];
+  const confetti = [];
+  for(let i=0;i<150;i++){
+    confetti.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height-canvas.height,
+      r:Math.random()*6+4,d:Math.random()*150+50,color:colors[Math.floor(Math.random()*colors.length)],
+      tilt:Math.random()*10-10,tiltAngleIncremental:Math.random()*0.07+0.05,tiltAngle:0});
+  }
+  function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<confetti.length;i++){let c=confetti[i];
+      ctx.beginPath();ctx.lineWidth=c.r/2;ctx.strokeStyle=c.color;
+      ctx.moveTo(c.x+c.tilt+c.r/4,c.y);ctx.lineTo(c.x+c.tilt,c.y+c.tilt+c.r/4);ctx.stroke();}
+    update();}
+  function update(){for(let i=0;i<confetti.length;i++){let c=confetti[i];
+    c.tiltAngle+=c.tiltAngleIncremental;c.y+=(Math.cos(c.d)+3+c.r/2)/2;c.x+=Math.sin(c.d);
+    c.tilt=Math.sin(c.tiltAngle)*15;if(c.y>canvas.height){c.x=Math.random()*canvas.width;c.y=-20;c.tilt=Math.random()*10-10;}}}
+  function animate(){draw();requestAnimationFrame(animate);} animate();
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
 </script>
 
 </body>
 </html>
-
