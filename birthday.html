@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-top: 50px;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff8fab, 0 0 30px #ff4e50; }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff6f61, 0 0 40px #f6416c; }
+  }
+
+  .cake {
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+    height: 150px;
+  }
+
+  .plate {
+    position: absolute;
+    bottom: 0;
+    width: 220px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    left: -10px;
+  }
+
+  .layer {
+    position: absolute;
+    bottom: 20px;
+    width: 200px;
+    border-radius: 10px;
+  }
+
+  .layer1 { height: 60px; background: #ff6f61; bottom: 20px; }
+  .layer2 { height: 40px; background: #ffa69e; bottom: 80px; }
+  .layer3 { height: 30px; background: #fff0f5; bottom: 120px; }
+
+  .candle {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background: #fff;
+    left: 95px;
+    top: -40px;
+    border-radius: 5px;
+  }
+
+  .flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 15px;
+    background: radial-gradient(ellipse at center, #ffea00 0%, #ff8c00 80%);
+    border-radius: 50%;
+    animation: flicker 0.2s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+  }
+
+  .qr-section {
+    margin-top: 40px;
+  }
+
+  .qr-section h2 {
+    font-size: 1.3em;
+    color: #fff;
+  }
+
+  canvas {
+    margin-top: 15px;
+  }
+
+  footer {
+    margin-top: 50px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+  <h1>🎂 Happy Birthday My Love ❤️</h1>
+
+  <div class="cake">
+    <div class="layer layer3"></div>
+    <div class="layer layer2"></div>
+    <div class="layer layer1"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+    <div class="plate"></div>
+  </div>
+
+  <div class="qr-section">
+    <h2>🎁 Scan this QR for a secret message 💌</h2>
+    <canvas id="qrcode"></canvas>
+  </div>
+
+  <footer>Made with ❤️ just for you!</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+<script>
+  // You can change this link later to your special message
+  var secretMessage = "https://example.com/secret-message";
+  var qr = new QRious({
+    element: document.getElementById('qrcode'),
+    value: secretMessage,
+    size: 150,
+    background: '#fff',
+    foreground: '#ff4e50'
+  });
+</script>
+
+</body>
+</html>
