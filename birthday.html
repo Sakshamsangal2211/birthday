@@ -250,44 +250,52 @@ window.addEventListener('resize', ()=>{
 
   <!-- Firebase setup -->
 <script type="module">
-  // Import Firebase modules
+  // Import Firebase Realtime Database modules
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import { getFirestore, doc, updateDoc, getDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+  import { getDatabase, ref, get, set, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-  // ✅ Paste your Firebase configuration below (the one from console)
- const firebaseConfig = {
-  apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
-  authDomain: "birthdaytracker-460d0.firebaseapp.com",
-  databaseURL: "https://birthdaytracker-460d0-default-rtdb.firebaseio.com",
-  projectId: "birthdaytracker-460d0",
-  storageBucket: "birthdaytracker-460d0.firebasestorage.app",
-  messagingSenderId: "138520757223",
-  appId: "1:138520757223:web:61790c894396347b2c7342"
-};
+  // Firebase config (same as yours)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
+    authDomain: "birthdaytracker-460d0.firebaseapp.com",
+    databaseURL: "https://birthdaytracker-460d0-default-rtdb.firebaseio.com",
+    projectId: "birthdaytracker-460d0",
+    storageBucket: "birthdaytracker-460d0.firebasestorage.app",
+    messagingSenderId: "138520757223",
+    appId: "1:138520757223:web:61790c894396347b2c7342"
+  };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  const db = getDatabase(app);
 
-  // Helper to safely update Firestore counts
-  async function incrementCounter(docName) {
-    const ref = doc(db, "birthdayStats", docName);
-    const snapshot = await getDoc(ref);
+  // Helper to increment counter in Realtime Database
+  async function incrementCounter(path) {
+    const counterRef = ref(db, path);
+    const snapshot = await get(counterRef);
     if (snapshot.exists()) {
-      await updateDoc(ref, { count: increment(1) });
+      update(counterRef, { count: snapshot.val().count + 1 });
     } else {
-      await setDoc(ref, { count: 1 });
+      set(counterRef, { count: 1 });
     }
   }
 
-  // ✅ Count total page opens
-  incrementCounter("pageOpens");
+  // Count page visits
+  incrementCounter("birthdayStats/pageOpens");
 
-  // ✅ Count button clicks
-  const tapButton = document.getElementById("playButton");
-  if (tapButton) {
-    tapButton.addEventListener("click", () => {
-      incrementCounter("buttonClicks");
+  // Count Tap Me button clicks
+  const cakeButton = document.querySelector(".cake-text");
+  if (cakeButton) {
+    cakeButton.addEventListener("click", () => {
+      incrementCounter("birthdayStats/tapClicks");
+    });
+  }
+
+  // Count reel button clicks
+  const reelButton = document.querySelector(".reel-button");
+  if (reelButton) {
+    reelButton.addEventListener("click", () => {
+      incrementCounter("birthdayStats/reelClicks");
     });
   }
 </script>
@@ -295,6 +303,7 @@ window.addEventListener('resize', ()=>{
 
 </body>
 </html>
+
 
 
 
