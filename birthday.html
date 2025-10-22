@@ -106,7 +106,7 @@
     margin-top: 20px;
     font-family: 'Great Vibes', cursive;
     font-size: 1.6em;
-    background: linear-gradient(90deg, #ff6f61, #f9d423, #6a11cb, #ff6f61, #00c3ff);
+    background: linear-gradient(90deg, #28a745, #2ecc71, #6a11cb, #00c3ff, #f9d423);
     background-size: 400% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -129,8 +129,8 @@
 </head>
 <body>
 
-<!-- Background Music -->
-<audio id="bg-music" autoplay loop>
+<!-- Background Music (play on first click) -->
+<audio id="bg-music" loop>
   <source src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/kangna-tera-ni-various_Jlf1feeW.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
@@ -164,13 +164,13 @@ function playReel() {
   window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
 }
 
-// Confetti script
+// Confetti
 const canvas = document.querySelector('.confetti-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const colors = ['#f94144','#f3722c','#f9c74f','#90be6d','#577590','#43aa8b','#ff6f61'];
+const colors = ['#28a745','#43aa8b','#90be6d','#57c84d','#2ecc71'];
 const confetti = [];
 
 for(let i=0; i<150; i++) {
@@ -228,11 +228,11 @@ window.addEventListener('resize', ()=> {
   canvas.height = window.innerHeight;
 });
 
-// Mobile autoplay fix: start music on first click if autoplay blocked
+// Play music on first click (mobile & desktop)
 document.addEventListener('click', () => {
   const music = document.getElementById('bg-music');
   if (music.paused) music.play();
-});
+}, { once: true });
 </script>
 
 </body>
