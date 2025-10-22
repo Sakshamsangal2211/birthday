@@ -11,15 +11,27 @@
     padding: 0;
     background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
     font-family: 'Poppins', sans-serif;
-    text-align: center;
     color: #fff;
     overflow-x: hidden;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .left {
+    flex: 1 1 50%;
+    text-align: center;
   }
 
   h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 3em;
-    margin-top: 50px;
+    margin-top: 30px;
     animation: glow 2s ease-in-out infinite alternate;
   }
 
@@ -30,7 +42,7 @@
 
   .cake {
     position: relative;
-    margin: 50px auto;
+    margin: 40px auto;
     width: 200px;
     height: 150px;
   }
@@ -96,8 +108,28 @@
     margin-top: 15px;
   }
 
+  .right {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+
+  .right img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
   footer {
-    margin-top: 50px;
+    text-align: center;
+    margin: 20px;
     font-size: 1.1em;
     font-weight: 500;
     color: #fff;
@@ -108,32 +140,45 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
+
+  @media (max-width: 768px) {
+    .container { flex-direction: column; padding: 20px; }
+    .right img { margin-top: 20px; }
+  }
 </style>
 </head>
 <body>
 
-  <h1>🎂 Happy Birthday My Love ❤️</h1>
+  <div class="container">
+    <div class="left">
+      <h1>🎂 Happy Birthday My Love ❤️</h1>
 
-  <div class="cake">
-    <div class="layer layer3"></div>
-    <div class="layer layer2"></div>
-    <div class="layer layer1"></div>
-    <div class="candle">
-      <div class="flame"></div>
+      <div class="cake">
+        <div class="layer layer3"></div>
+        <div class="layer layer2"></div>
+        <div class="layer layer1"></div>
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+        <div class="plate"></div>
+      </div>
+
+      <div class="qr-section">
+        <h2>🎁 Scan this QR for a secret message 💌</h2>
+        <canvas id="qrcode"></canvas>
+      </div>
     </div>
-    <div class="plate"></div>
-  </div>
 
-  <div class="qr-section">
-    <h2>🎁 Scan this QR for a secret message 💌</h2>
-    <canvas id="qrcode"></canvas>
+    <div class="right">
+      <img src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/ani.png" alt="Her Beautiful Photo">
+    </div>
   </div>
 
   <footer>Made with ❤️ just for you!</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 <script>
-  // You can change this link later to your special message
+  // Change this to your special message or link
   var secretMessage = "https://example.com/secret-message";
   var qr = new QRious({
     element: document.getElementById('qrcode'),
