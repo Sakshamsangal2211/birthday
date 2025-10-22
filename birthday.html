@@ -95,22 +95,27 @@
     100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
   }
 
-  .qr-section {
+  .reel-section {
     margin-top: 40px;
   }
 
-  .qr-section h2 {
-    font-size: 1.3em;
+  .reel-button {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #ff6f61, #ffb88c);
     color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,105,180,0.6);
+    transition: transform 0.2s;
   }
 
-  .qr-section img {
-    margin-top: 15px;
-    width: 180px;
-    height: 180px;
+  .reel-button:hover {
+    transform: scale(1.1);
   }
 
-  /* Animated rainbow text */
   .message {
     margin-top: 20px;
     font-family: 'Great Vibes', cursive;
@@ -183,10 +188,8 @@
         <div class="plate"></div>
       </div>
 
-      <div class="qr-section">
-        <h2>🎁 Scan this QR for a special reel 💌</h2>
-        <!-- Static QR Code image -->
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.instagram.com/reel/DOiyaYyD0uj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" alt="QR Code">
+      <div class="reel-section">
+        <button class="reel-button" onclick="playReel()">😭😭😭😭</button>
         <div class="message">Thank you for everything......</div>
       </div>
     </div>
@@ -197,6 +200,12 @@
   </div>
 
   <footer>Made with ❤️ just for you!</footer>
+
+<script>
+  function playReel() {
+    window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
+  }
+</script>
 
 </body>
 </html>
