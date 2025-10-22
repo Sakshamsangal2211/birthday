@@ -171,7 +171,7 @@
   </div>
 </div>
 
-<footer>❤️ just for you</footer>
+<footer>❤️ just for you!</footer>
 
 <script>
 // Play Instagram reel
@@ -250,59 +250,34 @@ window.addEventListener('resize', ()=>{
 
   <!-- Firebase setup -->
 <script type="module">
-  // Import Firebase Realtime Database modules
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import { getDatabase, ref, get, set, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-  // Firebase config (same as yours)
- const firebaseConfig = {
-  apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
-  authDomain: "birthdaytracker-460d0.firebaseapp.com",
-  databaseURL: "https://birthdaytracker-460d0-default-rtdb.firebaseio.com",
-  projectId: "birthdaytracker-460d0",
-  storageBucket: "birthdaytracker-460d0.firebasestorage.app",
-  messagingSenderId: "138520757223",
-  appId: "1:138520757223:web:c270511932b5359e2c7342"
-};
+  // 🔑 Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
+    authDomain: "birthdaytracker-460d0.firebaseapp.com",
+    databaseURL: "https://birthdaytracker-460d0-default-rtdb.firebaseio.com",
+    projectId: "birthdaytracker-460d0",
+    storageBucket: "birthdaytracker-460d0.firebasestorage.app",
+    messagingSenderId: "138520757223",
+    appId: "1:138520757223:web:c270511932b5359e2c7342"
+  };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // Helper to increment counter in Realtime Database
-  async function incrementCounter(path) {
-    const counterRef = ref(db, path);
-    const snapshot = await get(counterRef);
-    if (snapshot.exists()) {
-      update(counterRef, { count: snapshot.val().count + 1 });
-    } else {
-      set(counterRef, { count: 1 });
-    }
-  }
-
-  // Count page visits
-  incrementCounter("birthdayStats/pageOpens");
-
-  // Count Tap Me button clicks
-  const cakeButton = document.querySelector(".cake-text");
-  if (cakeButton) {
-    cakeButton.addEventListener("click", () => {
-      incrementCounter("birthdayStats/tapClicks");
-    });
-  }
-
-  // Count reel button clicks
-  const reelButton = document.querySelector(".reel-button");
-  if (reelButton) {
-    reelButton.addEventListener("click", () => {
-      incrementCounter("birthdayStats/reelClicks");
-    });
-  }
+  // Write "hello world" to testNode
+  set(ref(db, "testNode"), { message: "hello world" })
+    .then(() => console.log("Data written successfully!"))
+    .catch(err => console.error("Error writing data:", err));
 </script>
 
 
 </body>
 </html>
+
 
 
 
