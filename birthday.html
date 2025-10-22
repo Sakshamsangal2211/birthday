@@ -108,6 +108,16 @@
     margin-top: 15px;
   }
 
+  .message {
+    margin-top: 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5em;
+    background: linear-gradient(to right, #ff6f61, #ffb88c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 2s ease-in-out;
+  }
+
   .right {
     flex: 1 1 45%;
     text-align: center;
@@ -164,8 +174,9 @@
       </div>
 
       <div class="qr-section">
-        <h2>🎁 Scan this QR for a secret message 💌</h2>
+        <h2>🎁 Scan this QR for a special reel 💌</h2>
         <canvas id="qrcode"></canvas>
+        <div class="message">Thank you for everything......</div>
       </div>
     </div>
 
@@ -178,12 +189,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 <script>
-  // Change this to your special message or link
-  var secretMessage = "https://example.com/secret-message";
+  // Instagram reel link
+  var secretMessage = "https://www.instagram.com/reel/DOiyaYyD0uj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==";
   var qr = new QRious({
     element: document.getElementById('qrcode'),
     value: secretMessage,
-    size: 150,
+    size: 180,
     background: '#fff',
     foreground: '#ff4e50'
   });
