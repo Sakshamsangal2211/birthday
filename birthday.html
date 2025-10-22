@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday My Love ❤️</title>
+<title>Happy Birthday Anisha ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
   body {
@@ -142,7 +142,6 @@
 </head>
 <body>
 
-<!-- Background Music (play on first click) -->
 <!-- Background Music -->
 <audio id="bg-music" loop>
   <source src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/kangna-tera-ni-various_Jlf1feeW.mp3" type="audio/mpeg">
@@ -153,8 +152,7 @@
 
 <div class="container">
   <div class="left">
-    <h1>🎂 Happy Birthday My Love ❤️</h1>
-    <div class="cake">
+    <h1>🎂 Happy Birthday Anisha ❤️</h1>
     <div class="cake" onclick="playMusic()">
       <div class="layer layer3"></div>
       <div class="layer layer2"></div>
@@ -195,8 +193,6 @@ canvas.height = window.innerHeight;
 
 const colors = ['#28a745','#43aa8b','#90be6d','#57c84d','#2ecc71'];
 const confetti = [];
-
-for(let i=0; i<150; i++) {
 for(let i=0;i<150;i++){
   confetti.push({
     x: Math.random()*canvas.width,
@@ -210,7 +206,6 @@ for(let i=0;i<150;i++){
   });
 }
 
-function draw() {
 function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   for(let i=0;i<confetti.length;i++){
@@ -232,7 +227,6 @@ function update(){
     c.y += (Math.cos(c.d) + 3 + c.r/2)/2;
     c.x += Math.sin(c.d);
     c.tilt = Math.sin(c.tiltAngle)*15;
-
     if(c.y > canvas.height){
       c.x = Math.random()*canvas.width;
       c.y = -20;
@@ -248,17 +242,10 @@ function animate(){
 
 animate();
 
-window.addEventListener('resize', ()=> {
 window.addEventListener('resize', ()=>{
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
-
-// Play music on first click (mobile & desktop)
-document.addEventListener('click', () => {
-  const music = document.getElementById('bg-music');
-  if (music.paused) music.play();
-}, { once: true });
 </script>
 
 </body>
