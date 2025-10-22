@@ -129,6 +129,12 @@
 </head>
 <body>
 
+<!-- Background Music -->
+<audio id="bg-music" autoplay loop>
+  <source src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/kangna-tera-ni-various_Jlf1feeW.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 <canvas class="confetti-canvas"></canvas>
 
 <div class="container">
@@ -158,7 +164,7 @@ function playReel() {
   window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
 }
 
-// Confetti script (works reliably)
+// Confetti script
 const canvas = document.querySelector('.confetti-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -220,6 +226,12 @@ animate();
 window.addEventListener('resize', ()=> {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+});
+
+// Mobile autoplay fix: start music on first click if autoplay blocked
+document.addEventListener('click', () => {
+  const music = document.getElementById('bg-music');
+  if (music.paused) music.play();
 });
 </script>
 
