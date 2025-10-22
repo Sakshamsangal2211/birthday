@@ -171,7 +171,7 @@
   </div>
 </div>
 
-<footer>❤️ just for you!</footer>
+<footer>❤️ just for you</footer>
 
 <script>
 // Play Instagram reel
@@ -250,10 +250,11 @@ window.addEventListener('resize', ()=>{
 
   <!-- Firebase setup -->
 <script type="module">
+  // Import Firebase modules
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-  // 🔑 Your Firebase config
+  // Your Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
     authDomain: "birthdaytracker-460d0.firebaseapp.com",
@@ -268,15 +269,16 @@ window.addEventListener('resize', ()=>{
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // Write "hello world" to testNode
+  // Write a test message
   set(ref(db, "testNode"), { message: "hello world" })
-    .then(() => console.log("Data written successfully!"))
-    .catch(err => console.error("Error writing data:", err));
+    .then(() => console.log("✅ Data written successfully!"))
+    .catch(err => console.error("❌ Error writing data:", err));
 </script>
 
 
 </body>
 </html>
+
 
 
 
