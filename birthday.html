@@ -104,18 +104,28 @@
     color: #fff;
   }
 
-  canvas {
+  .qr-section img {
     margin-top: 15px;
+    width: 180px;
+    height: 180px;
   }
 
+  /* Animated rainbow text */
   .message {
     margin-top: 20px;
     font-family: 'Great Vibes', cursive;
-    font-size: 1.5em;
-    background: linear-gradient(to right, #ff6f61, #ffb88c);
+    font-size: 1.6em;
+    background: linear-gradient(90deg, #ff6f61, #f9d423, #6a11cb, #ff6f61, #00c3ff);
+    background-size: 400% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 2s ease-in-out;
+    animation: rainbow 6s ease infinite;
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .right {
@@ -175,7 +185,8 @@
 
       <div class="qr-section">
         <h2>🎁 Scan this QR for a special reel 💌</h2>
-        <canvas id="qrcode"></canvas>
+        <!-- Static QR Code image -->
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.instagram.com/reel/DOiyaYyD0uj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" alt="QR Code">
         <div class="message">Thank you for everything......</div>
       </div>
     </div>
@@ -186,19 +197,6 @@
   </div>
 
   <footer>Made with ❤️ just for you!</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
-<script>
-  // Instagram reel link
-  var secretMessage = "https://www.instagram.com/reel/DOiyaYyD0uj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==";
-  var qr = new QRious({
-    element: document.getElementById('qrcode'),
-    value: secretMessage,
-    size: 180,
-    background: '#fff',
-    foreground: '#ff4e50'
-  });
-</script>
 
 </body>
 </html>
