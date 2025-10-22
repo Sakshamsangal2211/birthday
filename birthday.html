@@ -55,6 +55,19 @@
     height: 150px;
   }
 
+  .cake-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8em;
+    color: #fff;
+    text-shadow: 0 0 10px #ff6f61, 0 0 20px #f9d423;
+    cursor: pointer;
+    z-index: 2;
+  }
+
   .plate { position: absolute; bottom: 0; width: 220px; height: 20px; background: #fff; border-radius: 50%; left: -10px; }
 
   .layer { position: absolute; bottom: 20px; width: 200px; border-radius: 10px; }
@@ -129,7 +142,7 @@
 </head>
 <body>
 
-<!-- Background Music (play on first click) -->
+<!-- Background Music -->
 <audio id="bg-music" loop>
   <source src="https://raw.githubusercontent.com/Sakshamsangal2211/birthday/main/kangna-tera-ni-various_Jlf1feeW.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
@@ -140,12 +153,13 @@
 <div class="container">
   <div class="left">
     <h1>🎂 Happy Birthday My Love ❤️</h1>
-    <div class="cake">
+    <div class="cake" onclick="playMusic()">
       <div class="layer layer3"></div>
       <div class="layer layer2"></div>
       <div class="layer layer1"></div>
       <div class="candle"><div class="flame"></div></div>
       <div class="plate"></div>
+      <div class="cake-text">Tap me</div>
     </div>
     <div class="reel-section">
       <button class="reel-button" onclick="playReel()">🎈🎈🎈🎈</button>
@@ -160,8 +174,15 @@
 <footer>Made with ❤️ just for you!</footer>
 
 <script>
+// Play Instagram reel
 function playReel() {
   window.open('https://www.instagram.com/reel/C_xrs38PJ2X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');
+}
+
+// Play background music on cake click
+function playMusic() {
+  const music = document.getElementById('bg-music');
+  if (music.paused) music.play();
 }
 
 // Confetti
@@ -172,8 +193,7 @@ canvas.height = window.innerHeight;
 
 const colors = ['#28a745','#43aa8b','#90be6d','#57c84d','#2ecc71'];
 const confetti = [];
-
-for(let i=0; i<150; i++) {
+for(let i=0;i<150;i++){
   confetti.push({
     x: Math.random()*canvas.width,
     y: Math.random()*canvas.height - canvas.height,
@@ -186,7 +206,7 @@ for(let i=0; i<150; i++) {
   });
 }
 
-function draw() {
+function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   for(let i=0;i<confetti.length;i++){
     let c = confetti[i];
@@ -207,7 +227,6 @@ function update(){
     c.y += (Math.cos(c.d) + 3 + c.r/2)/2;
     c.x += Math.sin(c.d);
     c.tilt = Math.sin(c.tiltAngle)*15;
-
     if(c.y > canvas.height){
       c.x = Math.random()*canvas.width;
       c.y = -20;
@@ -223,16 +242,10 @@ function animate(){
 
 animate();
 
-window.addEventListener('resize', ()=> {
+window.addEventListener('resize', ()=>{
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
-
-// Play music on first click (mobile & desktop)
-document.addEventListener('click', () => {
-  const music = document.getElementById('bg-music');
-  if (music.paused) music.play();
-}, { once: true });
 </script>
 
 </body>
