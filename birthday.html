@@ -101,19 +101,27 @@
 
   .reel-button {
     font-family: 'Great Vibes', cursive;
-    font-size: 2em;
+    font-size: 2.2em;
     padding: 15px 30px;
     border: none;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #ff6f61, #ffb88c);
+    border-radius: 20px;
+    background: linear-gradient(90deg, #ff6f61, #ffb88c, #6a11cb, #00c3ff);
     color: #fff;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(255,105,180,0.6);
-    transition: transform 0.2s;
+    box-shadow: 0 0 25px rgba(255,105,180,0.6);
+    animation: glow-button 2s ease-in-out infinite alternate, shake 0.5s ease-in-out infinite;
   }
 
-  .reel-button:hover {
-    transform: scale(1.1);
+  @keyframes glow-button {
+    0% { box-shadow: 0 0 20px rgba(255,105,180,0.6), 0 0 30px rgba(255,180,105,0.6); }
+    100% { box-shadow: 0 0 35px rgba(255,105,180,0.8), 0 0 45px rgba(255,180,105,0.8); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-3deg); }
+    50% { transform: translateX(5px) rotate(3deg); }
+    75% { transform: translateX(-5px) rotate(-3deg); }
   }
 
   .message {
@@ -189,7 +197,7 @@
       </div>
 
       <div class="reel-section">
-        <button class="reel-button" onclick="playReel()">😭😭😭😭</button>
+        <button class="reel-button" onclick="playReel()">🎈🎈🎈🎈</button>
         <div class="message">Thank you for everything......</div>
       </div>
     </div>
