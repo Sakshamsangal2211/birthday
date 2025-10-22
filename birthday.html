@@ -248,7 +248,53 @@ window.addEventListener('resize', ()=>{
 });
 </script>
 
+  <!-- Firebase setup -->
+<script type="module">
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import { getFirestore, doc, updateDoc, getDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+  // ✅ Paste your Firebase configuration below (the one from console)
+ const firebaseConfig = {
+  apiKey: "AIzaSyAd01EideyYVEMK_8hOYlgKjml6fuH6UAA",
+  authDomain: "birthdaytracker-460d0.firebaseapp.com",
+  databaseURL: "https://birthdaytracker-460d0-default-rtdb.firebaseio.com",
+  projectId: "birthdaytracker-460d0",
+  storageBucket: "birthdaytracker-460d0.firebasestorage.app",
+  messagingSenderId: "138520757223",
+  appId: "1:138520757223:web:61790c894396347b2c7342"
+};
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Helper to safely update Firestore counts
+  async function incrementCounter(docName) {
+    const ref = doc(db, "birthdayStats", docName);
+    const snapshot = await getDoc(ref);
+    if (snapshot.exists()) {
+      await updateDoc(ref, { count: increment(1) });
+    } else {
+      await setDoc(ref, { count: 1 });
+    }
+  }
+
+  // ✅ Count total page opens
+  incrementCounter("pageOpens");
+
+  // ✅ Count button clicks
+  const tapButton = document.getElementById("playButton");
+  if (tapButton) {
+    tapButton.addEventListener("click", () => {
+      incrementCounter("buttonClicks");
+    });
+  }
+</script>
+
+
 </body>
 </html>
+
 
 
